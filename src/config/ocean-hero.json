@@ -1,0 +1,39 @@
+{
+  "animals": {
+    "sea-turtle": {
+      "depthRange": 5,
+      "scale": 1.8
+    },
+    "ribbon-eel": {
+      "depthRange": 5.7,
+      "scale": 1.6
+    },
+    "mola-mola": {
+      "depthRange": 5,
+      "scale": 1.65
+    },
+    "lionfish": {
+      "depthRange": 5,
+      "scale": 1.5,
+      "catchR": 0.75,
+      "camZ": 7.5,
+      "params": {
+        "particleSize": 1.8,
+        "glow": 0.3
+      }
+    },
+    "moray": {
+      "depthRange": 5,
+      "scale": 1.6
+    },
+    "devil-ray": {
+      "depthRange": 5,
+      "scale": 1.65
+    },
+    "stingray": {
+      "depthRange": 5,
+      "scale": 1.5
+    }
+  },
+  "morphVariant": "flow"
+}
