@@ -4,7 +4,7 @@ Eighteen sea creatures rendered as three.js point clouds, each with its own
 swimming physics. They chase the cursor, and when one catches it the body
 scatters and reassembles as a different species.
 
-**[Live demo](https://ekazanec.github.io/particle-ocean/)** · extracted from the
+**[Live demo](https://agurov.com/ocean/)** · extracted from the
 hero of [agurov.com](https://agurov.com)
 
 ## What makes it different from a particle demo

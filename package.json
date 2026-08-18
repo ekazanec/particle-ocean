@@ -9,7 +9,8 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:site": "tsc --noEmit && BASE=/ocean/ vite build --outDir dist-site"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -31,7 +32,7 @@
     "name": "Andrey Gurov",
     "url": "https://agurov.com"
   },
-  "homepage": "https://ekazanec.github.io/particle-ocean/",
+  "homepage": "https://agurov.com/ocean/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ekazanec/particle-ocean.git"

@@ -15,5 +15,11 @@ createRoot(document.getElementById('root')!).render(
     <Suspense fallback={null}>
       <OceanLabClient />
     </Suspense>
+    <a
+      href="https://agurov.com"
+      className="fixed bottom-3 right-4 z-20 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-[color:var(--fg-subtle)] transition-colors hover:text-[color:var(--accent)]"
+    >
+      Creatures by Andrey Gurov
+    </a>
   </StrictMode>,
 );
