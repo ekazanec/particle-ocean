@@ -20,7 +20,14 @@ const OUT = process.argv[3] ?? 'hero-frames';
 const SPECIES = process.argv[4] ?? 'sea-turtle';
 // Capture wide, then crop the middle: the scene scales with the viewport, so
 // a bigger viewport plus a centre crop is the only zoom lever the demo has.
-const W = 1440, H = 810, FPS = 25, SECONDS = 3.2;
+const W = 1440, H = 810, FPS = 25;
+// shorter clips for the small tiles under the hero
+const SECONDS = Number(process.env.SECONDS ?? 3.2);
+// The school treats the cursor as a predator and parts around it, so for that
+// one the cursor is parked off to the side and the crowd stays formed.
+const CX = Number(process.env.CURSOR_CX ?? 0);
+const AMP_X = Number(process.env.AMP_X ?? 210);
+const AMP_Y = Number(process.env.AMP_Y ?? 90);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const port = 9222 + Math.floor(Math.random() * 400);
@@ -134,7 +141,7 @@ await sleep(400);
 
 // let the creature settle onto the cursor before the first frame
 for (let i = 0; i < 90; i += 1) {
-  await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: W / 2, y: H / 2, button: 'none' }, sessionId);
+  await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: W / 2 + CX, y: H / 2, button: 'none' }, sessionId);
   await advance(1);
 }
 
@@ -149,8 +156,8 @@ for (let f = 0; f < total; f += 1) {
   // A small, slow orbit. A wide or fast path makes the creature chase off the
   // edge of the crop, because it turns with inertia and overshoots.
   // one closed loop across the clip, so the GIF meets itself at the seam
-  const x = W / 2 + 210 * Math.sin(t * Math.PI * 2);
-  const y = H / 2 + 90 * Math.sin(t * Math.PI * 2 + 1.2);
+  const x = W / 2 + CX + AMP_X * Math.sin(t * Math.PI * 2);
+  const y = H / 2 + AMP_Y * Math.sin(t * Math.PI * 2 + 1.2);
   await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x, y, button: 'none' }, sessionId);
   await advance(1);
   const { data } = await send('Page.captureScreenshot', { format: 'png' }, sessionId);

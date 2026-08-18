@@ -13,7 +13,12 @@ import { join } from 'node:path';
 
 const DIR = process.argv[2] ?? '/tmp/po-frames';
 const OUT = process.argv[3] ?? '/tmp/po-follow';
-const W = 1440, H = 810, CW = 1000, CH = 563, SW = 90, SH = 51;
+const W = 1440, H = 810, SW = 90, SH = 51;
+// dim or small creatures need a tighter window and a lower cut-off than the
+// bright, chunky ones
+const CW = Number(process.env.CROP_W ?? 1000);
+const CH = Math.round(CW * 9 / 16);
+const THRESH = Number(process.env.THRESH ?? 105);
 
 const files = readdirSync(DIR).filter((f) => f.endsWith('.png')).sort();
 const centres = files.map((f) => {
@@ -23,8 +28,8 @@ const centres = files.map((f) => {
   let sx = 0, sy = 0, n = 0;
   for (let i = 0; i < raw.length; i += 1) {
     const v = raw[i];
-    if (v <= 105) continue;                 // backdrop and god rays sit below this
-    const w = (v - 105) ** 2;               // weight toward the creature's core
+    if (v <= THRESH) continue;              // backdrop and god rays sit below this
+    const w = (v - THRESH) ** 2;            // weight toward the creature's core
     sx += (i % SW) * w; sy += Math.floor(i / SW) * w; n += w;
   }
   return n > 0 ? { x: (sx / n) * (W / SW), y: (sy / n) * (H / SH) } : null;

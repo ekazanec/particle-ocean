@@ -29,10 +29,20 @@
 
 ---
 
+<p align="center">
+  <img src="assets/jellyfish.gif" width="270" alt="A jellyfish contracting its bell and coasting, tentacles trailing" />
+  <img src="assets/devil-ray.gif" width="270" alt="A devil ray beating its wings, cephalic fins changing pose, tail trailing behind" />
+  <img src="assets/hummingbird.gif" width="270" alt="A hummingbird hovering on a shimmering wing fan" />
+</p>
+
 ## Not one animation with eighteen skins
 
 Every species is written as its own model, not as a shared sine wave in a
 different colour.
+
+**Devil ray.** Flight rather than swimming. The wings beat, the cephalic fins
+change pose between funnel, spiral and ring, and the tail is a physics chain
+that follows rather than a rigged curve.
 
 **Sea turtle.** Three-axis flippers. The blade reaches forward on the
 recovery, sweeps down and back through the power stroke, and twists about its
