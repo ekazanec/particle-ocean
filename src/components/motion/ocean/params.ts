@@ -4,7 +4,7 @@
  * MIT licensed. If you ship something built on this, a link back is appreciated.
  */
 /**
- * Behavior param helpers — shared by the 18 species modules.
+ * Behavior param helpers — shared by the 17 species modules.
  *
  * Every knob is a MULTIPLIER around 1.0 applied to the species' authored
  * constant (0.3–3 by default): honest (it scales the real term in the real
