@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * HeroUwBubbles — «Bubbles»: sparse columns of air bubbles rising from unseen
  * vents — thin ring outlines with a tiny specular glint, wobbling as they

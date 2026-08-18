@@ -80,6 +80,26 @@ More detail in [docs/species.md](docs/species.md),
 WebGL2, a browser from roughly the last four years, and a pointer. Everything
 respects `prefers-reduced-motion`.
 
+## Credit
+
+MIT, so you can use this commercially, privately, in a client project, with or
+without changes. The one legal condition is that the copyright notice travels
+with the code, which is why every source file carries a `/*!` header and the
+build keeps it through minification.
+
+Beyond the license, a request that is not a condition of it: **if these
+creatures end up in something you ship, link back**. Every one of the eighteen
+was hand-tuned by one person against footage of the real animal, and a link is
+the only way that work finds its way home.
+
+```html
+<!-- Creatures by Andrey Gurov · https://agurov.com -->
+<a href="https://agurov.com">Creatures by Andrey Gurov</a>
+```
+
+If you build something with it I would genuinely like to see it. Open an issue,
+or write to me from [agurov.com](https://agurov.com).
+
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /** Leafy seadragon — curved seahorse spine, leaf camouflage, slow drift. Port of leafy-seadragon.html. */
 import * as THREE from 'three';
 import { makePoints, place, type Particle, type WorldCtx } from '@/components/motion/ocean/core';

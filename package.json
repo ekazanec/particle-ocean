@@ -26,5 +26,27 @@
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0",
     "vite": "^6.0.0"
-  }
+  },
+  "author": {
+    "name": "Andrey Gurov",
+    "url": "https://agurov.com"
+  },
+  "homepage": "https://ekazanec.github.io/particle-ocean/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekazanec/particle-ocean.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ekazanec/particle-ocean/issues"
+  },
+  "keywords": [
+    "three",
+    "threejs",
+    "webgl",
+    "particles",
+    "creature",
+    "animation",
+    "ocean",
+    "point-cloud"
+  ]
 }

@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * Hummingbird — deliberate whimsy: a bird in the ocean scene. The water is
  * treated as air and never apologized for.

@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * Invisible art direction for the hero creature: `autonomy + soft constraint`,
  * never scripted motion (external UX review, 2026-08-06; accepted in

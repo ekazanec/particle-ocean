@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * HeroUwAbyss — «Abyss»: the hadal look — an almost-black vertical gradient
  * with a crushing vignette, the last memory of light high above, and every

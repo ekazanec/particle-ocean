@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /** Orca — eye patch + saddle, vertical (cetacean) wave. Port of orca.html. */
 import * as THREE from 'three';
 import { makePoints, type Particle, type WorldCtx } from '@/components/motion/ocean/core';

@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * UnderwaterShader — shared host for the hero-uw-* underwater background set
  * (ocean lab, /lab/ocean). One fullscreen THREE quad + a fragment shader per

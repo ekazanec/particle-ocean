@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * HeroUwVent — «Hydrothermal vent»: a black-smoker field at hadal
  * depth — basalt chimney silhouettes on the seabed, columns of shimmering

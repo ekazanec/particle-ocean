@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * OpenWaterFooter — ambient background for <SiteFooter>: dark open water
  * (the same `attachWater` mote current used behind the hero) with the

@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * Herring school — 560 fish morphing between formations (bait ball, torus,
  * wave sheet, vortex funnel, figure-eight ribbon, hourglass). The cursor is

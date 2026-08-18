@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * Swim primitives — reconstruction of the missing `swim-engine.js` behaviour
  * half: Swimmer (inertial steering + banked roll), Drive (chase/strike gait),

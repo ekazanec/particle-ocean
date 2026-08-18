@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * HeroUwPlankton — «Bioluminescent plankton»: near-black water seeded with
  * faint cyan-green glow points that drift on slow eddies and pulse softly;

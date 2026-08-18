@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * HERO_EFFECTS — the underwater backdrop registry. Each entry is a
  * fullscreen, pointer-events-none, reduced-motion-aware layer that sits

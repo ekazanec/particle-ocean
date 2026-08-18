@@ -11,4 +11,15 @@ export default defineConfig({
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // `/*!` marks this a legal comment, so the minifier keeps it and the
+        // attribution survives into whatever bundle this ends up inside.
+        banner:
+          '/*! particle-ocean · https://github.com/ekazanec/particle-ocean\n'
+          + ' * Copyright (c) 2026 Andrey Gurov · https://agurov.com · MIT */',
+      },
+    },
+  },
 });

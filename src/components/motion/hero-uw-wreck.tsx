@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /**
  * HeroUwWreck — «Shipwreck»: a hull silhouette resting on the bottom
  * far away in the blue fog — rounded keel, tilted deck line, one standing and

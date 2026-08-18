@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /** Stingray — rounded disc, rajiform margin undulation, barbed whip tail. */
 import * as THREE from 'three';
 import { BasisSmoother, makePoints, type Particle, type WorldCtx } from '@/components/motion/ocean/core';

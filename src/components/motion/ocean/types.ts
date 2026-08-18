@@ -1,3 +1,8 @@
+/*!
+ * particle-ocean · https://github.com/ekazanec/particle-ocean
+ * Copyright (c) 2026 Andrey Gurov · https://agurov.com
+ * MIT licensed. If you ship something built on this, a link back is appreciated.
+ */
 /** Shared contract between the OceanHero host and each ported animal. */
 import type * as THREE from 'three';
 import type { PointCloud, WorldCtx } from '@/components/motion/ocean/core';
