@@ -5,19 +5,31 @@ both scripts drive the system Chrome over the DevTools Protocol using Node's
 built-in WebSocket (Node >= 22), and ffmpeg does the encoding.
 
 ```bash
-# 1. record the demo, full viewport, 100 frames
+# 1. record the demo, full viewport, 80 frames on a deterministic clock
 node scripts/capture-hero.mjs https://agurov.com/ocean/ /tmp/po-frames sea-turtle
 
 # 2. reframe every frame around the creature (see below)
 node scripts/frame-follow.mjs /tmp/po-frames /tmp/po-follow
 
-# 3. encode
-ffmpeg -y -framerate 12.5 -i /tmp/po-follow/f%04d.png \
-  -vf "fps=10,scale=640:-1:flags=lanczos,palettegen=max_colors=64:stats_mode=diff" /tmp/pal.png
-ffmpeg -y -framerate 12.5 -i /tmp/po-follow/f%04d.png -i /tmp/pal.png \
-  -lavfi "[0:v]trim=end_frame=75,fps=10,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=none:diff_mode=rectangle" \
+# 3. encode at the capture rate: 25 fps is 4 centiseconds per frame, which
+#    the GIF delay field expresses exactly
+ffmpeg -y -framerate 25 -i /tmp/po-follow/f%04d.png \
+  -vf "scale=560:-1:flags=lanczos,palettegen=max_colors=64:stats_mode=diff" /tmp/pal.png
+ffmpeg -y -framerate 25 -i /tmp/po-follow/f%04d.png -i /tmp/pal.png \
+  -lavfi "scale=560:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=none:diff_mode=rectangle" \
   -loop 0 assets/hero.gif
 ```
+
+## Why the clock is stubbed
+
+A screenshot takes an unpredictable 50 to 150 ms, so a loop that grabs frames
+as fast as it can samples a real-time animation at uneven intervals. The
+result stutters no matter how many frames are in it, because the problem is
+the spacing, not the count. `capture-hero.mjs` therefore replaces
+`requestAnimationFrame`, `performance.now` and `Date.now` in the page before
+any of its scripts run, and drives them by hand: every captured frame advances
+the simulation by exactly one frame of wall time. Short and evenly spaced
+beats long and jittery.
 
 ## Why the second step exists
 

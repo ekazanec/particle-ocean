@@ -20,10 +20,7 @@ const OUT = process.argv[3] ?? 'hero-frames';
 const SPECIES = process.argv[4] ?? 'sea-turtle';
 // Capture wide, then crop the middle: the scene scales with the viewport, so
 // a bigger viewport plus a centre crop is the only zoom lever the demo has.
-const W = 1440, H = 810, CROP_W = 1120, CROP_H = 630, FPS = 12.5, SECONDS = 8;
-// The creature settles ABOVE the cursor rather than on it, so the crop window
-// sits higher than the viewport centre.
-const CROP_DY = -110;
+const W = 1440, H = 810, FPS = 25, SECONDS = 3.2;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const port = 9222 + Math.floor(Math.random() * 400);
@@ -70,8 +67,38 @@ const { sessionId } = await send('Target.attachToTarget', { targetId, flatten: t
 await send('Page.enable', {}, sessionId);
 await send('Runtime.enable', {}, sessionId);
 await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false }, sessionId);
+/**
+ * Deterministic clock. Screenshots take an unpredictable 50 to 150 ms each,
+ * so a capture loop that just grabs frames as fast as it can samples the
+ * animation at uneven intervals: the motion inside the file stutters no
+ * matter how many frames are in it. Stubbing rAF and the clocks makes every
+ * captured frame advance the simulation by exactly one frame of wall time.
+ */
+const STEP = 1000 / FPS;
+await send('Page.addScriptToEvaluateOnNewDocument', {
+  source: `(() => {
+    let t = 0;
+    const queue = [];
+    window.__advance = (n) => {
+      for (let i = 0; i < n; i += 1) {
+        t += ${STEP};
+        const due = queue.splice(0);
+        for (const fn of due) { try { fn(t); } catch {} }
+      }
+    };
+    window.requestAnimationFrame = (fn) => queue.push(fn);
+    window.cancelAnimationFrame = () => {};
+    performance.now = () => t;
+    Date.now = () => 1767225600000 + t;
+  })();`,
+}, sessionId);
+
 await send('Page.navigate', { url: URL_ }, sessionId);
 await sleep(6000);
+
+const advance = (n = 1) => send('Runtime.evaluate', {
+  expression: `window.__advance && window.__advance(${n})`,
+}, sessionId);
 
 const evaluate = async (expression) => {
   const { result } = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true }, sessionId);
@@ -79,6 +106,7 @@ const evaluate = async (expression) => {
 };
 
 // pick the species, then collapse the panel so the scene is the whole frame
+await advance(30);
 await evaluate(`(() => {
   const want = ${JSON.stringify(SPECIES)}.replace(/-/g, ' ');
   const b = [...document.querySelectorAll('button')]
@@ -105,9 +133,9 @@ await evaluate(`(() => {
 await sleep(400);
 
 // let the creature settle onto the cursor before the first frame
-for (let i = 0; i < 40; i += 1) {
+for (let i = 0; i < 90; i += 1) {
   await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: W / 2, y: H / 2, button: 'none' }, sessionId);
-  await sleep(60);
+  await advance(1);
 }
 
 rmSync(OUT, { recursive: true, force: true });
@@ -120,9 +148,11 @@ for (let f = 0; f < total; f += 1) {
   // following a straight line, and the loop closes where it started
   // A small, slow orbit. A wide or fast path makes the creature chase off the
   // edge of the crop, because it turns with inertia and overshoots.
-  const x = W / 2 + CROP_W * 0.15 * Math.sin(t * Math.PI * 2);
-  const y = H / 2 + CROP_H * 0.10 * Math.sin(t * Math.PI * 2 + 1.2);
+  // one closed loop across the clip, so the GIF meets itself at the seam
+  const x = W / 2 + 210 * Math.sin(t * Math.PI * 2);
+  const y = H / 2 + 90 * Math.sin(t * Math.PI * 2 + 1.2);
   await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x, y, button: 'none' }, sessionId);
+  await advance(1);
   const { data } = await send('Page.captureScreenshot', { format: 'png' }, sessionId);
   writeFileSync(join(OUT, `f${String(f).padStart(4, '0')}.png`), Buffer.from(data, 'base64'));
 }

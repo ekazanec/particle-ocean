@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://agurov.com/ocean/">
-    <img src="assets/hero.gif" width="640" alt="A sea turtle made of particles swimming through god rays, flippers stroking on three axes" />
+    <img src="assets/hero.gif" width="560" alt="A sea turtle made of particles swimming through god rays, flippers stroking on three axes" />
   </a>
 </p>
 
