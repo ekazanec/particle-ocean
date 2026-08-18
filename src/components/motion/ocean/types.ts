@@ -63,12 +63,6 @@ export interface OceanAnimalDef {
   id: string;
   /** Shown in the /lab picker only. */
   label: string;
-  /**
-   * Which family the creature belongs to. Everything here swims except the
-   * hummingbird, which is filed under 'bird' so the picker does not present
-   * it as a fish.
-   */
-  group?: 'sea' | 'bird';
   make: OceanAnimalFactory;
   /** Preferred camera position (from the prototype's tuning). */
   cam: [number, number, number];

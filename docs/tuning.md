@@ -3,7 +3,7 @@
 Every knob in the demo is a **multiplier around 1.0** applied to a constant a
 human chose while looking at the animal. That is deliberate: `1` is always
 exactly the shipped look, the slider always scales a real term in a real
-equation, and the vocabulary is the same for all 18 species.
+equation, and the vocabulary is the same for all 17 species.
 
 The definitions live in
 [`params.ts`](../src/components/motion/ocean/params.ts); each species declares

@@ -14,8 +14,8 @@ Every species is built from the same two-layer split:
 2. **What the body does about it** — per-species code that reads the swimmer's
    frame and writes every particle's position for this frame.
 
-Species that do not fit the shared swimmer (jellyfish, sea turtle, hummingbird,
-sea spider) run their own integrator, but the split stays the same.
+Species that do not fit the shared swimmer (jellyfish, sea turtle, sea spider)
+run their own integrator, but the split stays the same.
 
 ## The swimmer
 

@@ -7,7 +7,7 @@
 <h1 align="center">particle-ocean</h1>
 
 <p align="center">
-  Eighteen creatures rendered as three.js point clouds, each with its own
+  Seventeen sea creatures rendered as three.js point clouds, each with its own
   swimming physics.<br />
   They chase the cursor, and when one catches it the body scatters and
   reassembles as a different species.
@@ -24,18 +24,17 @@
   <img src="https://img.shields.io/badge/license-MIT-d4ff00?style=flat-square" alt="MIT" />
   <img src="https://img.shields.io/badge/three.js-r170-1a1a1a?style=flat-square" alt="three.js" />
   <img src="https://img.shields.io/badge/dependencies-three%20%2B%20react-1a1a1a?style=flat-square" alt="two dependencies" />
-  <img src="https://img.shields.io/badge/species-18-1a1a1a?style=flat-square" alt="18 species" />
+  <img src="https://img.shields.io/badge/species-17-1a1a1a?style=flat-square" alt="17 species" />
 </p>
 
 ---
 
 <p align="center">
-  <img src="assets/jellyfish.gif" width="270" alt="A jellyfish contracting its bell and coasting, tentacles trailing" />
-  <img src="assets/devil-ray.gif" width="270" alt="A devil ray beating its wings, cephalic fins changing pose, tail trailing behind" />
-  <img src="assets/hummingbird.gif" width="270" alt="A hummingbird hovering on a shimmering wing fan" />
+  <img src="assets/jellyfish.gif" width="400" alt="A jellyfish contracting its bell and coasting, tentacles trailing" />
+  <img src="assets/devil-ray.gif" width="400" alt="A devil ray beating its wings, cephalic fins changing pose, tail trailing behind" />
 </p>
 
-## Not one animation with eighteen skins
+## Not one animation with seventeen skins
 
 Every species is written as its own model, not as a shared sine wave in a
 different colour.
@@ -58,10 +57,6 @@ their own chains.
 **Herring school.** 560 individuals as one creature, morphing between bait
 ball, torus, wave sheet, vortex funnel, figure-eight ribbon and hourglass. The
 cursor is a predator: the school parts around it and reforms behind.
-
-**Hummingbird.** The one that is not a fish, and the only creature that has to
-earn something. It commits to the cursor as a flower, hovers on a shimmering
-wing fan, drinks for two to five seconds, then darts away.
 
 The rest: blue shark, devil ray, dolphin, hammerhead, leafy seadragon,
 lionfish, mola mola, moray, orca, ribbon eel, sailfish, sea spider, stingray,
@@ -103,8 +98,7 @@ the change takes effect on the next frame.
 
 | Path | What it holds |
 | --- | --- |
-| `src/components/motion/ocean/animals/` | the 17 sea species |
-| `src/components/motion/ocean/animals/birds/` | the one that is not a fish |
+| `src/components/motion/ocean/animals/` | the 17 species |
 | `src/components/motion/ocean/biomes/` | five underwater biomes with their own flora |
 | `src/components/motion/ocean/swim.ts` | the shared swimming model: drive, basis, roll, thrust |
 | `src/components/motion/ocean/steering.ts` | invisible art direction: attract regions, UI repulsion |
@@ -127,7 +121,7 @@ with the code, which is why every source file carries a `/*!` header and the
 build keeps it through minification.
 
 Beyond the license, a request that is not a condition of it: **if these
-creatures end up in something you ship, link back**. Every one of the eighteen
+creatures end up in something you ship, link back**. Every one of them
 was hand-tuned by one person against footage of the real animal, and a link is
 the only way that work finds its way home.
 

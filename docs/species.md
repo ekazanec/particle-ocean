@@ -1,4 +1,4 @@
-# The eighteen
+# The seventeen
 
 Each species is its own file under
 [`src/components/motion/ocean/animals/`](../src/components/motion/ocean/animals/).
@@ -33,15 +33,6 @@ What follows is what each one does that the others do not.
 | **Sea turtle** | three-axis flippers: stroke, fore-and-aft sweep, and feathering about the flipper's own span. Turns come from making the two sides unequal. The rear pair sculls and rudders instead of hanging |
 | **Sea spider** | metachronal rowing: eight legs with per-frame joints, each phase-lagged behind the last |
 
-
-## Birds
-
-One of the eighteen is not a fish, so it does not sit in a list of fish. It
-lives in `animals/birds/` and the picker gives it its own row.
-
-| Species | The distinguishing motion |
-| --- | --- |
-| **Hummingbird** | the only creature that has to earn something. It commits to the cursor as a flower, hovers on a shimmering wing fan, drinks for two to five seconds, then darts away |
 
 ## Crowds
 
