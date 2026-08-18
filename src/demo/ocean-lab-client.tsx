@@ -40,6 +40,16 @@ import { ShaderHero } from '@/components/motion/shader-hero';
 import oceanHeroCfg from '@/config/ocean-hero';
 import { OCEAN_ANIMALS } from '@/components/motion/ocean/registry';
 
+/**
+ * The picker is split by family: everything here swims except the
+ * hummingbird, which is a bird and gets its own row rather than sitting in a
+ * list of fish.
+ */
+const CHIP_GROUPS = [
+  { key: 'sea', title: 'Sea', items: OCEAN_ANIMALS.filter((a) => (a.group ?? 'sea') === 'sea') },
+  { key: 'bird', title: 'Birds', items: OCEAN_ANIMALS.filter((a) => a.group === 'bird') },
+].filter((g) => g.items.length > 0);
+
 const SAVE_SERVER = 'http://localhost:9902/save-animal';
 const SAVE_VARIANT_SERVER = 'http://localhost:9902/save-variant';
 
@@ -423,19 +433,28 @@ export function OceanLabClient() {
           z-index, panel later in DOM → panel paints on top and swallowed the
           old «Morph →» chip's clicks): reserve the panel's 16rem + margins
           even while it's collapsed to a pill, so toggling never reflows. */}
-      <div className="absolute left-4 top-4 z-10 flex max-w-[calc(100vw-21rem)] flex-wrap gap-1.5">
-        {OCEAN_ANIMALS.map((a) => (
-          <button
-            key={a.id}
-            onClick={() => setForceId(a.id)}
-            className={`rounded-full border px-3 py-1.5 font-mono text-[0.625rem] uppercase tracking-[0.1em] transition-colors ${
-              current === a.id
-                ? 'border-[color:var(--accent)] text-[color:var(--accent)]'
-                : 'border-[color:var(--border-strong)] text-[color:var(--fg-muted)] hover:text-[color:var(--fg)]'
-            }`}
-          >
-            {a.label}
-          </button>
+      <div className="absolute left-4 top-4 z-10 max-w-[calc(100vw-21rem)] space-y-3">
+        {CHIP_GROUPS.map((g) => (
+          <div key={g.key}>
+            <p className="mb-1.5 font-mono text-[0.5625rem] uppercase tracking-[0.18em] text-[color:var(--fg-subtle)]">
+              {g.title}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {g.items.map((a) => (
+                <button
+                  key={a.id}
+                  onClick={() => setForceId(a.id)}
+                  className={`rounded-full border px-3 py-1.5 font-mono text-[0.625rem] uppercase tracking-[0.1em] transition-colors ${
+                    current === a.id
+                      ? 'border-[color:var(--accent)] text-[color:var(--accent)]'
+                      : 'border-[color:var(--border-strong)] text-[color:var(--fg-muted)] hover:text-[color:var(--fg)]'
+                  }`}
+                >
+                  {a.label}
+                </button>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 

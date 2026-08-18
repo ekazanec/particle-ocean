@@ -32,7 +32,16 @@ What follows is what each one does that the others do not.
 | **Jellyfish** | swims by contracting the bell and coasting. Thrust comes from the contraction, so it is intrinsically pulsed, and the tentacles and oral arms trail on their own chains |
 | **Sea turtle** | three-axis flippers: stroke, fore-and-aft sweep, and feathering about the flipper's own span. Turns come from making the two sides unequal. The rear pair sculls and rudders instead of hanging |
 | **Sea spider** | metachronal rowing: eight legs with per-frame joints, each phase-lagged behind the last |
-| **Hummingbird** | the one freshwater outlier, and the only creature that has to earn something. It commits to the cursor as a flower, hovers on a shimmering wing fan, drinks for two to five seconds, then darts away |
+
+
+## Birds
+
+One of the eighteen is not a fish, so it does not sit in a list of fish. It
+lives in `animals/birds/` and the picker gives it its own row.
+
+| Species | The distinguishing motion |
+| --- | --- |
+| **Hummingbird** | the only creature that has to earn something. It commits to the cursor as a flower, hovers on a shimmering wing fan, drinks for two to five seconds, then darts away |
 
 ## Crowds
 

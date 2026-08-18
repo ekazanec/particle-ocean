@@ -1,34 +1,63 @@
-# particle-ocean
+<p align="center">
+  <a href="https://agurov.com/ocean/">
+    <img src="assets/hero.gif" width="640" alt="A sea turtle made of particles swimming through god rays, flippers stroking on three axes" />
+  </a>
+</p>
 
-Eighteen sea creatures rendered as three.js point clouds, each with its own
-swimming physics. They chase the cursor, and when one catches it the body
-scatters and reassembles as a different species.
+<h1 align="center">particle-ocean</h1>
 
-**[Live demo](https://agurov.com/ocean/)** · extracted from the
-hero of [agurov.com](https://agurov.com)
+<p align="center">
+  Eighteen creatures rendered as three.js point clouds, each with its own
+  swimming physics.<br />
+  They chase the cursor, and when one catches it the body scatters and
+  reassembles as a different species.
+</p>
 
-## What makes it different from a particle demo
+<p align="center">
+  <a href="https://agurov.com/ocean/"><b>▶ Live demo</b></a> ·
+  <a href="docs/species.md">Species</a> ·
+  <a href="docs/swimming.md">How it swims</a> ·
+  <a href="docs/tuning.md">Tuning</a>
+</p>
 
-Every species is written as its own model, not as a shared sine wave with
-different colors:
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-d4ff00?style=flat-square" alt="MIT" />
+  <img src="https://img.shields.io/badge/three.js-r170-1a1a1a?style=flat-square" alt="three.js" />
+  <img src="https://img.shields.io/badge/dependencies-three%20%2B%20react-1a1a1a?style=flat-square" alt="two dependencies" />
+  <img src="https://img.shields.io/badge/species-18-1a1a1a?style=flat-square" alt="18 species" />
+</p>
 
-- A **jellyfish** swims by contracting its bell and coasting; thrust follows
-  the contraction, not a clock.
-- A **sea turtle** flies with three-axis flippers. The blade reaches forward on
-  the recovery, sweeps down and back through the power stroke, and twists
-  about its own span so it bites water going down and sheds it coming up.
-  Turns are driven by making the two sides unequal, the way a real turtle
-  manoeuvres, rather than by rotating the whole body.
-- A **herring school** is one cloud of individuals with separation, alignment
-  and a shared fright response.
-- A **hummingbird** (the one freshwater outlier) earns each drink: it commits
-  to the cursor as a flower, hovers, and darts away.
+---
 
-The rest of the roster: blue shark, devil ray, dolphin, hammerhead, leafy
-seadragon, lionfish, mola mola, moray, orca, ribbon eel, sailfish, sea spider,
-stingray, whale shark.
+## Not one animation with eighteen skins
 
-## Try it locally
+Every species is written as its own model, not as a shared sine wave in a
+different colour.
+
+**Sea turtle.** Three-axis flippers. The blade reaches forward on the
+recovery, sweeps down and back through the power stroke, and twists about its
+own span so it bites water going down and sheds it coming up. Turns come from
+making the two sides unequal, the way a real turtle manoeuvres, rather than
+from rotating the whole body. The rear pair sculls and rudders instead of
+hanging.
+
+**Jellyfish.** Swims by contracting the bell and coasting, so thrust is
+intrinsically pulsed rather than continuous. Tentacles and oral arms trail on
+their own chains.
+
+**Herring school.** 560 individuals as one creature, morphing between bait
+ball, torus, wave sheet, vortex funnel, figure-eight ribbon and hourglass. The
+cursor is a predator: the school parts around it and reforms behind.
+
+**Hummingbird.** The one that is not a fish, and the only creature that has to
+earn something. It commits to the cursor as a flower, hovers on a shimmering
+wing fan, drinks for two to five seconds, then darts away.
+
+The rest: blue shark, devil ray, dolphin, hammerhead, leafy seadragon,
+lionfish, mola mola, moray, orca, ribbon eel, sailfish, sea spider, stingray,
+whale shark.
+
+## Run it
 
 ```bash
 npm install
@@ -37,12 +66,13 @@ npm run dev
 
 The demo is the tuning lab the creatures were built in. Every knob is live:
 gait frequency, stroke amplitude, body proportions, particle size and glow,
-plus the backdrop and biome picker. Ranges can be switched from a fixed value
-to a min/max band that the value drifts between.
+plus the backdrop and biome picker. Any knob can be switched from a fixed
+value to a min/max band that the value drifts between, so nothing runs at one
+metronomic tempo.
 
-## Using the engine in your own project
+## Use the engine
 
-The engine is framework-agnostic three.js; only the demo panel needs React.
+The engine is framework-agnostic three.js. Only the demo panel needs React.
 
 ```ts
 import { OCEAN_ANIMALS } from './src/components/motion/ocean/registry';
@@ -63,7 +93,8 @@ the change takes effect on the next frame.
 
 | Path | What it holds |
 | --- | --- |
-| `src/components/motion/ocean/animals/` | the 18 species |
+| `src/components/motion/ocean/animals/` | the 17 sea species |
+| `src/components/motion/ocean/animals/birds/` | the one that is not a fish |
 | `src/components/motion/ocean/biomes/` | five underwater biomes with their own flora |
 | `src/components/motion/ocean/swim.ts` | the shared swimming model: drive, basis, roll, thrust |
 | `src/components/motion/ocean/steering.ts` | invisible art direction: attract regions, UI repulsion |
@@ -71,9 +102,7 @@ the change takes effect on the next frame.
 | `src/components/motion/ocean/params.ts` | the knob vocabulary every species speaks |
 | `src/components/motion/hero-uw-*.tsx` | backdrop layers: god rays, caustics, plankton, wreck |
 | `src/demo/` | the tuning lab |
-
-More detail in [docs/species.md](docs/species.md),
-[docs/swimming.md](docs/swimming.md) and [docs/tuning.md](docs/tuning.md).
+| `scripts/` | headless capture: records the animation at the top of this page |
 
 ## Requirements
 

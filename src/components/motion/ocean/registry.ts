@@ -13,7 +13,7 @@ import { DEVIL_RAY_PARAMS, makeDevilRay } from '@/components/motion/ocean/animal
 import { DOLPHIN_PARAMS, makeDolphin } from '@/components/motion/ocean/animals/dolphin';
 import { HAMMERHEAD_PARAMS, makeHammerhead } from '@/components/motion/ocean/animals/hammerhead';
 import { HERRING_SCHOOL_PARAMS, makeHerringSchool } from '@/components/motion/ocean/animals/herring-school';
-import { HUMMINGBIRD_PARAMS, makeHummingbird } from '@/components/motion/ocean/animals/hummingbird';
+import { HUMMINGBIRD_PARAMS, makeHummingbird } from '@/components/motion/ocean/animals/birds/hummingbird';
 import { JELLYFISH_PARAMS, makeJellyfish } from '@/components/motion/ocean/animals/jellyfish';
 import { LEAFY_SEADRAGON_PARAMS, makeLeafySeadragon } from '@/components/motion/ocean/animals/leafy-seadragon';
 import { LIONFISH_PARAMS, makeLionfish } from '@/components/motion/ocean/animals/lionfish';
@@ -69,11 +69,13 @@ export const OCEAN_ANIMALS: OceanAnimalDef[] = [
     bg: { c0: rgb(0x0a1410), c1: rgb(0x101a10), c2: rgb(0x2a3018), accent: rgb(0xcfd76a) } },
   { id: 'herring-school', label: 'Herring school', make: makeHerringSchool, params: HERRING_SCHOOL_PARAMS, cam: [0, 0.3, 10], morph: 'timer',
     bg: { c0: rgb(0x071120), c1: rgb(0x0b1a30), c2: rgb(0x1c3452), accent: rgb(0xcfe0ee) } },
+  // Filed under 'bird', not because it behaves differently but because it is
+  // not a fish and the picker should say so.
   // deliberate whimsy: a hummingbird "flying" through the ocean — dawn-warm
   // palette (deep teal night → warm amber glow) against the dark editorial bg.
   // catchR 0.3 < bill reach (~0.49): sipping nectar at the cursor never
   // triggers the morph — only the deep-sip lunge after a COMPLETED drink
   // plunges the head inside catchR (full drink = the catch, by design).
-  { id: 'hummingbird', label: 'Hummingbird', make: makeHummingbird, params: HUMMINGBIRD_PARAMS, cam: [0, 0.3, 6], morph: 'catch', catchR: 0.3,
+  { id: 'hummingbird', label: 'Hummingbird', make: makeHummingbird, params: HUMMINGBIRD_PARAMS, group: 'bird', cam: [0, 0.3, 6], morph: 'catch', catchR: 0.3,
     bg: { c0: rgb(0x0a0d12), c1: rgb(0x0d1a1c), c2: rgb(0x382812), accent: rgb(0xf5b168) } },
 ];
